@@ -102,6 +102,7 @@ const SignupForm = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
+        {error && <div>Login failed</div>}
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'

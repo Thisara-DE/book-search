@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
@@ -32,11 +32,11 @@ function App() {
       <Router>
         <>
           <Navbar />
-          <Routes>
+          <Switch>
             <Route exact path='/' element={<SearchBooks />} />
             <Route exact path='/saved' element={<SavedBooks />} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-          </Routes>
+          </Switch>
         </>
       </Router>
     </ApolloProvider>
